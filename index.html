@@ -10,13 +10,10 @@
 </head>
 <body>
 
-<!-- ── Custom Cursor ── -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- ════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════ -->
+<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">ALPHA <span>WEARS</span></a>
   <ul class="nav-links">
@@ -38,11 +35,14 @@
   </div>
 </nav>
 
-<!-- ════════════════════════════════════
-     HERO
-════════════════════════════════════ -->
+<!-- HERO — autoplay image slider with real brand photos -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('images/hero-2.jpeg')"></div>
+    <div class="hero-slide"        style="background-image:url('images/AlPha .JPG.jpeg')"></div>
+    <div class="hero-slide"        style="background-image:url('images/lookbook-1.jpeg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-shape hero-shape-1"></div>
   <div class="hero-shape hero-shape-2"></div>
   <div class="hero-content">
@@ -54,43 +54,34 @@
       <a href="#lookbook" class="btn-ghost">View Lookbook</a>
     </div>
   </div>
+  <div class="hero-dots">
+    <span class="hero-dot active" data-slide="0"></span>
+    <span class="hero-dot" data-slide="1"></span>
+    <span class="hero-dot" data-slide="2"></span>
+  </div>
   <div class="hero-scroll">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     TICKER MARQUEE
-════════════════════════════════════ -->
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner" id="ticker">
-    <span class="ticker-item">Alpha Wears</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">SS 2025 Collection</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">Aloha Mentality</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">Premium Streetwear</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">New Arrivals</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">Alpha Wears</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">SS 2025 Collection</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">Aloha Mentality</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">Premium Streetwear</span>
-    <span class="ticker-item ticker-dot">◆</span>
-    <span class="ticker-item">New Arrivals</span>
-    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Alpha Wears</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">SS 2025 Collection</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Aloha Mentality</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Premium Streetwear</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">New Arrivals</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Alpha Wears</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">SS 2025 Collection</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Aloha Mentality</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Premium Streetwear</span><span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">New Arrivals</span><span class="ticker-item ticker-dot">◆</span>
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     FEATURED CATEGORIES
-════════════════════════════════════ -->
+<!-- CATEGORIES — real brand photos as backgrounds -->
 <section id="categories" class="section-pad">
   <div class="container">
     <div class="categories-header reveal">
@@ -102,57 +93,40 @@
     </div>
     <div class="categories-grid">
       <div class="cat-card reveal reveal-delay-1">
-        <div class="cat-card-bg cat-bg-1"><div class="cat-img-overlay">T</div></div>
+        <div class="cat-card-bg" style="background-image:url('images/hero-1.png')"></div>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-info">
-          <p class="cat-name">T-Shirts</p>
-          <p class="cat-count">28 styles</p>
-        </div>
+        <div class="cat-card-info"><p class="cat-name">T-Shirts</p><p class="cat-count">28 styles</p></div>
         <button class="cat-quick-view">Quick View</button>
       </div>
       <div class="cat-card reveal reveal-delay-2">
-        <div class="cat-card-bg cat-bg-2"><div class="cat-img-overlay">H</div></div>
+        <div class="cat-card-bg" style="background-image:url('images/lookbook-1.jpeg')"></div>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-info">
-          <p class="cat-name">Hoodies</p>
-          <p class="cat-count">16 styles</p>
-        </div>
+        <div class="cat-card-info"><p class="cat-name">Hoodies</p><p class="cat-count">16 styles</p></div>
         <button class="cat-quick-view">Quick View</button>
       </div>
       <div class="cat-card reveal reveal-delay-3">
-        <div class="cat-card-bg cat-bg-3"><div class="cat-img-overlay">C</div></div>
+        <div class="cat-card-bg" style="background-image:url('images/hero-1.png')"></div>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-info">
-          <p class="cat-name">Caps</p>
-          <p class="cat-count">12 styles</p>
-        </div>
+        <div class="cat-card-info"><p class="cat-name">Caps</p><p class="cat-count">12 styles</p></div>
         <button class="cat-quick-view">Quick View</button>
       </div>
       <div class="cat-card reveal reveal-delay-4">
-        <div class="cat-card-bg cat-bg-4"><div class="cat-img-overlay">J</div></div>
+        <div class="cat-card-bg" style="background-image:url('images/hero-2.jpeg')"></div>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-info">
-          <p class="cat-name">Jackets</p>
-          <p class="cat-count">9 styles</p>
-        </div>
+        <div class="cat-card-info"><p class="cat-name">Jackets</p><p class="cat-count">9 styles</p></div>
         <button class="cat-quick-view">Quick View</button>
       </div>
       <div class="cat-card reveal reveal-delay-5">
-        <div class="cat-card-bg cat-bg-5"><div class="cat-img-overlay">A</div></div>
+        <div class="cat-card-bg" style="background-image:url('images/AlPha .JPG.jpeg')"></div>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-info">
-          <p class="cat-name">Accessories</p>
-          <p class="cat-count">22 styles</p>
-        </div>
+        <div class="cat-card-info"><p class="cat-name">Accessories</p><p class="cat-count">22 styles</p></div>
         <button class="cat-quick-view">Quick View</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     BRAND PHILOSOPHY
-════════════════════════════════════ -->
+<!-- PHILOSOPHY — real brand photo on right panel -->
 <section id="philosophy" class="section-pad">
   <div class="container">
     <div class="philosophy-inner">
@@ -167,28 +141,14 @@
           wherever they go, regardless of the climate.
         </p>
         <div class="philosophy-stats">
-          <div class="stat-item">
-            <div class="stat-number">12<em>+</em></div>
-            <div class="stat-label">Premium Fabrics</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">87<em>+</em></div>
-            <div class="stat-label">Unique Styles</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">40<em>k</em></div>
-            <div class="stat-label">Alpha Members</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">3<em>+</em></div>
-            <div class="stat-label">Years of Craft</div>
-          </div>
+          <div class="stat-item"><div class="stat-number">12<em>+</em></div><div class="stat-label">Premium Fabrics</div></div>
+          <div class="stat-item"><div class="stat-number">87<em>+</em></div><div class="stat-label">Unique Styles</div></div>
+          <div class="stat-item"><div class="stat-number">40<em>k</em></div><div class="stat-label">Alpha Members</div></div>
+          <div class="stat-item"><div class="stat-number">3<em>+</em></div><div class="stat-label">Years of Craft</div></div>
         </div>
       </div>
       <div class="philosophy-image reveal reveal-delay-2">
-        <div class="philosophy-img-bg">
-          <div class="philosophy-img-text">ALPHA</div>
-        </div>
+        <img src="images/lookbook-1.jpeg" alt="Alpha Wears tracksuit editorial" class="philosophy-real-img"/>
         <div class="philosophy-img-accent">
           <p>"Strength with calm.<br>Ambition with balance."</p>
         </div>
@@ -197,9 +157,7 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     NEW ARRIVALS
-════════════════════════════════════ -->
+<!-- NEW ARRIVALS — products stay as placeholders per instructions -->
 <section id="new-arrivals" class="section-pad" style="background:#0A0A0A;">
   <div class="container">
     <div class="arrivals-header reveal">
@@ -210,20 +168,13 @@
       <a href="#" class="view-all">See All →</a>
     </div>
     <div class="products-grid">
-
-      <!-- Product 1 -->
       <div class="product-card reveal reveal-delay-1">
         <div class="product-img">
           <div class="product-img-bg p-img-1">
-            <div class="p-img-label">
-              <div class="p-img-icon">⌘</div>
-              <span>product-1.jpg</span>
-            </div>
+            <div class="p-img-label"><div class="p-img-icon">⌘</div><span>product-1.jpg</span></div>
           </div>
           <span class="product-badge">New</span>
-          <div class="product-actions">
-            <button class="btn-add-cart">Add to Cart</button>
-          </div>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <div class="product-info">
           <p class="product-category">Tees</p>
@@ -231,20 +182,13 @@
           <p class="product-price">$89.00</p>
         </div>
       </div>
-
-      <!-- Product 2 -->
       <div class="product-card reveal reveal-delay-2">
         <div class="product-img">
           <div class="product-img-bg p-img-2">
-            <div class="p-img-label">
-              <div class="p-img-icon">◈</div>
-              <span>product-2.jpg</span>
-            </div>
+            <div class="p-img-label"><div class="p-img-icon">◈</div><span>product-2.jpg</span></div>
           </div>
           <span class="product-badge">Best Seller</span>
-          <div class="product-actions">
-            <button class="btn-add-cart">Add to Cart</button>
-          </div>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <div class="product-info">
           <p class="product-category">Hoodies</p>
@@ -252,20 +196,13 @@
           <p class="product-price"><span class="original">$179.00</span>$149.00</p>
         </div>
       </div>
-
-      <!-- Product 3 -->
       <div class="product-card reveal reveal-delay-3">
         <div class="product-img">
           <div class="product-img-bg p-img-3">
-            <div class="p-img-label">
-              <div class="p-img-icon">◉</div>
-              <span>product-3.jpg</span>
-            </div>
+            <div class="p-img-label"><div class="p-img-icon">◉</div><span>product-3.jpg</span></div>
           </div>
           <span class="product-badge">Limited</span>
-          <div class="product-actions">
-            <button class="btn-add-cart">Add to Cart</button>
-          </div>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <div class="product-info">
           <p class="product-category">Outerwear</p>
@@ -273,19 +210,12 @@
           <p class="product-price">$295.00</p>
         </div>
       </div>
-
-      <!-- Product 4 -->
       <div class="product-card reveal reveal-delay-4">
         <div class="product-img">
           <div class="product-img-bg p-img-4">
-            <div class="p-img-label">
-              <div class="p-img-icon">◎</div>
-              <span>product-4.jpg</span>
-            </div>
+            <div class="p-img-label"><div class="p-img-icon">◎</div><span>product-4.jpg</span></div>
           </div>
-          <div class="product-actions">
-            <button class="btn-add-cart">Add to Cart</button>
-          </div>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <div class="product-info">
           <p class="product-category">Caps</p>
@@ -293,65 +223,56 @@
           <p class="product-price">$65.00</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     LOOKBOOK
-════════════════════════════════════ -->
+<!-- LOOKBOOK — all real brand editorial photos -->
 <section id="lookbook" class="section-pad">
   <div class="container">
     <div class="reveal" style="text-align:center;margin-bottom:8px;">
-      <p class="section-label" style="justify-content:center;display:flex;">SS 2025 Lookbook</p>
+      <p class="section-label" style="display:flex;justify-content:center;">SS 2025 Lookbook</p>
       <h2 class="section-title" style="text-align:center">Editorial<br><em>Stories</em></h2>
     </div>
     <div class="lookbook-grid reveal">
       <div class="look-item">
-        <div class="look-bg look-bg-1">
-          <div class="look-num">01</div>
-          <div class="look-overlay"><div class="look-plus">+</div></div>
-          <div class="look-label">lookbook-01.jpg</div>
-        </div>
+        <img src="images/hero-2.jpeg" alt="Alpha Leather Collection" class="look-real-img"/>
+        <div class="look-num">01</div>
+        <div class="look-overlay"><div class="look-plus">+</div></div>
+        <div class="look-label">Leather Collection</div>
       </div>
       <div class="look-item">
-        <div class="look-bg look-bg-2">
-          <div class="look-num">02</div>
-          <div class="look-overlay"><div class="look-plus">+</div></div>
-          <div class="look-label">lookbook-02.jpg</div>
-        </div>
+        <img src="images/hero-1.png" alt="Alpha Mentality Tee" class="look-real-img"/>
+        <div class="look-num">02</div>
+        <div class="look-overlay"><div class="look-plus">+</div></div>
+        <div class="look-label">Alpha Mentality Tee</div>
       </div>
       <div class="look-item">
-        <div class="look-bg look-bg-3">
-          <div class="look-num">03</div>
-          <div class="look-overlay"><div class="look-plus">+</div></div>
-          <div class="look-label">lookbook-03.jpg</div>
-        </div>
+        <img src="images/lookbook-2.jpeg" alt="Alpha Track Series" class="look-real-img"/>
+        <div class="look-num">03</div>
+        <div class="look-overlay"><div class="look-plus">+</div></div>
+        <div class="look-label">Track Series</div>
       </div>
       <div class="look-item">
-        <div class="look-bg look-bg-4">
-          <div class="look-num">04</div>
-          <div class="look-overlay"><div class="look-plus">+</div></div>
-          <div class="look-label">lookbook-04.jpg</div>
-        </div>
+        <img src="images/lookbook-1.jpeg" alt="Alpha Tracksuit" class="look-real-img"/>
+        <div class="look-num">04</div>
+        <div class="look-overlay"><div class="look-plus">+</div></div>
+        <div class="look-label">Alpha Tracksuit</div>
       </div>
       <div class="look-item">
-        <div class="look-bg look-bg-5">
-          <div class="look-num">05</div>
-          <div class="look-overlay"><div class="look-plus">+</div></div>
-          <div class="look-label">lookbook-05.jpg</div>
-        </div>
+        <img src="images/AlPha .JPG.jpeg" alt="Alpha Street Style" class="look-real-img"/>
+        <div class="look-num">05</div>
+        <div class="look-overlay"><div class="look-plus">+</div></div>
+        <div class="look-label">Street Style</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     VIDEO SECTION
-════════════════════════════════════ -->
+<!-- VIDEO / CINEMATIC — real brand photo as full-width background -->
 <section id="video-section">
-  <div class="video-bg"></div>
+  <div class="video-real-bg" style="background-image:url('images/hero-2.jpeg')"></div>
+  <div class="video-overlay"></div>
   <div class="video-grain"></div>
   <div class="video-lines"></div>
   <div class="video-content reveal">
@@ -364,13 +285,11 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     COMMUNITY
-════════════════════════════════════ -->
+<!-- COMMUNITY — real brand photos in Instagram-style grid -->
 <section id="community" class="section-pad">
   <div class="container">
     <div class="community-header reveal">
-      <p class="section-label" style="justify-content:center;display:flex;">@alphawears</p>
+      <p class="section-label" style="display:flex;justify-content:center;">@alphawears</p>
       <h2 class="section-title" style="text-align:center">The Alpha<br><em>Community</em></h2>
       <p style="text-align:center;margin-top:20px;font-family:var(--sans);font-size:0.82rem;font-weight:300;color:var(--gray);max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8">
         Tag us in your fits. Join 40,000+ members living the Alpha lifestyle.
@@ -378,30 +297,34 @@
     </div>
     <div class="community-grid">
       <div class="community-item reveal reveal-delay-1">
-        <div class="comm-bg comm-bg-1"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/hero-1.png"      alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
       <div class="community-item reveal reveal-delay-2">
-        <div class="comm-bg comm-bg-2"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/hero-2.jpeg"      alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
       <div class="community-item reveal reveal-delay-3">
-        <div class="comm-bg comm-bg-3"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/lookbook-1.jpeg"  alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
       <div class="community-item reveal reveal-delay-4">
-        <div class="comm-bg comm-bg-4"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/lookbook-2.jpeg"  alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
       <div class="community-item reveal reveal-delay-5">
-        <div class="comm-bg comm-bg-5"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/AlPha .JPG.jpeg"  alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
       <div class="community-item reveal reveal-delay-5">
-        <div class="comm-bg comm-bg-6"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+        <img src="images/lookbook-2.jpeg" alt="community" class="comm-real-img"/>
+        <div class="comm-overlay"><div class="comm-icon">♡</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     NEWSLETTER
-════════════════════════════════════ -->
+<!-- NEWSLETTER -->
 <section id="newsletter" class="section-pad">
   <div class="container">
     <div class="newsletter-inner reveal">
@@ -419,9 +342,7 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -480,20 +401,14 @@
   </div>
 </footer>
 
-<!-- ════════════════════════════════════
-     CART OVERLAY + DRAWER
-════════════════════════════════════ -->
+<!-- CART DRAWER -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-drawer-header">
-    <div class="cart-drawer-title">
-      Your Cart <span id="cartBadgeDrawer">0 items</span>
-    </div>
+    <div class="cart-drawer-title">Your Cart <span id="cartBadgeDrawer">0 items</span></div>
     <button class="cart-close" id="cartClose">✕</button>
   </div>
-  <div class="cart-items" id="cartItemsContainer">
-    <!-- populated by main.js -->
-  </div>
+  <div class="cart-items" id="cartItemsContainer"></div>
   <div class="cart-footer" id="cartFooter" style="display:none">
     <div class="cart-subtotal">
       <span class="cart-subtotal-label">Subtotal</span>
@@ -502,34 +417,26 @@
     <p class="cart-note">Shipping &amp; taxes calculated at checkout. Free delivery on orders over $200.</p>
     <div class="cart-footer-btns">
       <button class="btn-whatsapp-checkout" id="btnWhatsappCheckout">
-        <span class="wa-icon">📲</span>
-        Checkout via WhatsApp
+        <span class="wa-icon">📲</span> Checkout via WhatsApp
       </button>
       <button class="btn-continue-shopping" id="btnContinue">Continue Shopping</button>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     WHATSAPP FLOAT BUTTON
-════════════════════════════════════ -->
+<!-- WHATSAPP FLOAT -->
 <div class="wa-float">
   <div class="wa-tooltip">Chat with us on WhatsApp</div>
   <button class="wa-btn" id="waFloatBtn" title="Chat on WhatsApp">💬</button>
 </div>
 
-<!-- ════════════════════════════════════
-     CONTACT MODAL
-════════════════════════════════════ -->
+<!-- CONTACT MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="contact-modal">
     <button class="modal-close" id="modalClose">✕</button>
     <p class="modal-label">Alpha Wears Support</p>
     <h2 class="modal-title">Send us<br>a message.</h2>
-    <p class="modal-sub">
-      We typically reply within a few minutes. Let us know how we can help —
-      orders, sizing, styling advice, or anything else.
-    </p>
+    <p class="modal-sub">We typically reply within a few minutes. Let us know how we can help — orders, sizing, styling advice, or anything else.</p>
     <div class="modal-field">
       <label>Your Name</label>
       <input class="modal-input" id="contactName" type="text" placeholder="e.g. Alex Johnson"/>
@@ -538,20 +445,12 @@
       <label>Message</label>
       <textarea class="modal-textarea" id="contactMessage" placeholder="Hi! I'd like to know about…"></textarea>
     </div>
-    <button class="btn-send-wa" id="btnSendMsg">
-      <span>📲</span> Send via WhatsApp
-    </button>
-    <p class="modal-wa-note">
-      You'll be redirected to WhatsApp to complete sending your message.<br>
-      Our number: +234 909 864 1755
-    </p>
+    <button class="btn-send-wa" id="btnSendMsg"><span>📲</span> Send via WhatsApp</button>
+    <p class="modal-wa-note">You'll be redirected to WhatsApp to complete sending your message.<br>Our number: +234 909 864 1755</p>
   </div>
 </div>
 
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
-
-<!-- ── JavaScript (deferred so DOM is ready) ── -->
 <script src="main.js" defer></script>
 </body>
 </html>
