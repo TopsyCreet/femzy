@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ALPHA WEARS — Aloha Mentality.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── Custom Cursor ── -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">ALPHA <span>WEARS</span></a>
+  <ul class="nav-links">
+    <li><a href="#categories">Shop</a></li>
+    <li><a href="#new-arrivals">Collections</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#philosophy">Journal</a></li>
+    <li><a href="#philosophy">About</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="btnNavSearch">&#9675; Search</button>
+    <div class="nav-cart">
+      <button id="btnNavCart">&#9679; Cart</button>
+      <span class="cart-count">0</span>
+    </div>
+    <button class="menu-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-shape hero-shape-1"></div>
+  <div class="hero-shape hero-shape-2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">SS 2025 Collection — Now Available</p>
+    <h1 class="hero-title">ALPHA<br><em>WEARS</em></h1>
+    <p class="hero-sub">Aloha Mentality.</p>
+    <div class="hero-actions">
+      <a href="#new-arrivals" class="btn-primary">Explore Collection</a>
+      <a href="#lookbook" class="btn-ghost">View Lookbook</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     TICKER MARQUEE
+════════════════════════════════════ -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">Alpha Wears</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">SS 2025 Collection</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Aloha Mentality</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Premium Streetwear</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">New Arrivals</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Alpha Wears</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">SS 2025 Collection</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Aloha Mentality</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Premium Streetwear</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">New Arrivals</span>
+    <span class="ticker-item ticker-dot">◆</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     FEATURED CATEGORIES
+════════════════════════════════════ -->
+<section id="categories" class="section-pad">
+  <div class="container">
+    <div class="categories-header reveal">
+      <div>
+        <p class="section-label">Curated For You</p>
+        <h2 class="section-title">Shop by<br><em>Category</em></h2>
+      </div>
+      <a href="#" class="view-all">View All Collections →</a>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-bg cat-bg-1"><div class="cat-img-overlay">T</div></div>
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-info">
+          <p class="cat-name">T-Shirts</p>
+          <p class="cat-count">28 styles</p>
+        </div>
+        <button class="cat-quick-view">Quick View</button>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-bg cat-bg-2"><div class="cat-img-overlay">H</div></div>
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-info">
+          <p class="cat-name">Hoodies</p>
+          <p class="cat-count">16 styles</p>
+        </div>
+        <button class="cat-quick-view">Quick View</button>
+      </div>
+      <div class="cat-card reveal reveal-delay-3">
+        <div class="cat-card-bg cat-bg-3"><div class="cat-img-overlay">C</div></div>
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-info">
+          <p class="cat-name">Caps</p>
+          <p class="cat-count">12 styles</p>
+        </div>
+        <button class="cat-quick-view">Quick View</button>
+      </div>
+      <div class="cat-card reveal reveal-delay-4">
+        <div class="cat-card-bg cat-bg-4"><div class="cat-img-overlay">J</div></div>
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-info">
+          <p class="cat-name">Jackets</p>
+          <p class="cat-count">9 styles</p>
+        </div>
+        <button class="cat-quick-view">Quick View</button>
+      </div>
+      <div class="cat-card reveal reveal-delay-5">
+        <div class="cat-card-bg cat-bg-5"><div class="cat-img-overlay">A</div></div>
+        <div class="cat-card-overlay"></div>
+        <div class="cat-card-info">
+          <p class="cat-name">Accessories</p>
+          <p class="cat-count">22 styles</p>
+        </div>
+        <button class="cat-quick-view">Quick View</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     BRAND PHILOSOPHY
+════════════════════════════════════ -->
+<section id="philosophy" class="section-pad">
+  <div class="container">
+    <div class="philosophy-inner">
+      <div class="philosophy-text reveal">
+        <p class="section-label">Our Ethos</p>
+        <h2 class="section-title">The Alpha<br><em>State of Mind</em></h2>
+        <p class="philosophy-body">
+          Alpha Wears represents <strong>confidence, movement, and presence.</strong>
+          Inspired by the Aloha mentality — strength with calm, ambition with balance.<br><br>
+          We believe premium streetwear is not just clothing. It's a declaration. Every piece
+          is crafted for those who move with intention — who carry tropical freedom energy
+          wherever they go, regardless of the climate.
+        </p>
+        <div class="philosophy-stats">
+          <div class="stat-item">
+            <div class="stat-number">12<em>+</em></div>
+            <div class="stat-label">Premium Fabrics</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">87<em>+</em></div>
+            <div class="stat-label">Unique Styles</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">40<em>k</em></div>
+            <div class="stat-label">Alpha Members</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3<em>+</em></div>
+            <div class="stat-label">Years of Craft</div>
+          </div>
+        </div>
+      </div>
+      <div class="philosophy-image reveal reveal-delay-2">
+        <div class="philosophy-img-bg">
+          <div class="philosophy-img-text">ALPHA</div>
+        </div>
+        <div class="philosophy-img-accent">
+          <p>"Strength with calm.<br>Ambition with balance."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     NEW ARRIVALS
+════════════════════════════════════ -->
+<section id="new-arrivals" class="section-pad" style="background:#0A0A0A;">
+  <div class="container">
+    <div class="arrivals-header reveal">
+      <div>
+        <p class="section-label">Just Dropped</p>
+        <h2 class="section-title" style="color:var(--white)">New<br><em>Arrivals</em></h2>
+      </div>
+      <a href="#" class="view-all">See All →</a>
+    </div>
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img">
+          <div class="product-img-bg p-img-1">
+            <div class="p-img-label">
+              <div class="p-img-icon">⌘</div>
+              <span>product-1.jpg</span>
+            </div>
+          </div>
+          <span class="product-badge">New</span>
+          <div class="product-actions">
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">Tees</p>
+          <p class="product-name">Alpha Oversized Tee</p>
+          <p class="product-price">$89.00</p>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img">
+          <div class="product-img-bg p-img-2">
+            <div class="p-img-label">
+              <div class="p-img-icon">◈</div>
+              <span>product-2.jpg</span>
+            </div>
+          </div>
+          <span class="product-badge">Best Seller</span>
+          <div class="product-actions">
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">Hoodies</p>
+          <p class="product-name">Aloha Hoodie</p>
+          <p class="product-price"><span class="original">$179.00</span>$149.00</p>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card reveal reveal-delay-3">
+        <div class="product-img">
+          <div class="product-img-bg p-img-3">
+            <div class="p-img-label">
+              <div class="p-img-icon">◉</div>
+              <span>product-3.jpg</span>
+            </div>
+          </div>
+          <span class="product-badge">Limited</span>
+          <div class="product-actions">
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">Outerwear</p>
+          <p class="product-name">Alpha Varsity Jacket</p>
+          <p class="product-price">$295.00</p>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card reveal reveal-delay-4">
+        <div class="product-img">
+          <div class="product-img-bg p-img-4">
+            <div class="p-img-label">
+              <div class="p-img-icon">◎</div>
+              <span>product-4.jpg</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">Caps</p>
+          <p class="product-name">Alpha Cap — Midnight</p>
+          <p class="product-price">$65.00</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     LOOKBOOK
+════════════════════════════════════ -->
+<section id="lookbook" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px;">
+      <p class="section-label" style="justify-content:center;display:flex;">SS 2025 Lookbook</p>
+      <h2 class="section-title" style="text-align:center">Editorial<br><em>Stories</em></h2>
+    </div>
+    <div class="lookbook-grid reveal">
+      <div class="look-item">
+        <div class="look-bg look-bg-1">
+          <div class="look-num">01</div>
+          <div class="look-overlay"><div class="look-plus">+</div></div>
+          <div class="look-label">lookbook-01.jpg</div>
+        </div>
+      </div>
+      <div class="look-item">
+        <div class="look-bg look-bg-2">
+          <div class="look-num">02</div>
+          <div class="look-overlay"><div class="look-plus">+</div></div>
+          <div class="look-label">lookbook-02.jpg</div>
+        </div>
+      </div>
+      <div class="look-item">
+        <div class="look-bg look-bg-3">
+          <div class="look-num">03</div>
+          <div class="look-overlay"><div class="look-plus">+</div></div>
+          <div class="look-label">lookbook-03.jpg</div>
+        </div>
+      </div>
+      <div class="look-item">
+        <div class="look-bg look-bg-4">
+          <div class="look-num">04</div>
+          <div class="look-overlay"><div class="look-plus">+</div></div>
+          <div class="look-label">lookbook-04.jpg</div>
+        </div>
+      </div>
+      <div class="look-item">
+        <div class="look-bg look-bg-5">
+          <div class="look-num">05</div>
+          <div class="look-overlay"><div class="look-plus">+</div></div>
+          <div class="look-label">lookbook-05.jpg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     VIDEO SECTION
+════════════════════════════════════ -->
+<section id="video-section">
+  <div class="video-bg"></div>
+  <div class="video-grain"></div>
+  <div class="video-lines"></div>
+  <div class="video-content reveal">
+    <p class="video-eyebrow">Alpha Wears — The Film</p>
+    <h2 class="video-title">Built<br>Different.</h2>
+    <a href="#" class="btn-video">
+      <span class="play-icon">▶</span>
+      Watch Story
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     COMMUNITY
+════════════════════════════════════ -->
+<section id="community" class="section-pad">
+  <div class="container">
+    <div class="community-header reveal">
+      <p class="section-label" style="justify-content:center;display:flex;">@alphawears</p>
+      <h2 class="section-title" style="text-align:center">The Alpha<br><em>Community</em></h2>
+      <p style="text-align:center;margin-top:20px;font-family:var(--sans);font-size:0.82rem;font-weight:300;color:var(--gray);max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8">
+        Tag us in your fits. Join 40,000+ members living the Alpha lifestyle.
+      </p>
+    </div>
+    <div class="community-grid">
+      <div class="community-item reveal reveal-delay-1">
+        <div class="comm-bg comm-bg-1"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+      <div class="community-item reveal reveal-delay-2">
+        <div class="comm-bg comm-bg-2"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+      <div class="community-item reveal reveal-delay-3">
+        <div class="comm-bg comm-bg-3"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+      <div class="community-item reveal reveal-delay-4">
+        <div class="comm-bg comm-bg-4"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+      <div class="community-item reveal reveal-delay-5">
+        <div class="comm-bg comm-bg-5"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+      <div class="community-item reveal reveal-delay-5">
+        <div class="comm-bg comm-bg-6"><div class="comm-overlay"><div class="comm-icon">♡</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     NEWSLETTER
+════════════════════════════════════ -->
+<section id="newsletter" class="section-pad">
+  <div class="container">
+    <div class="newsletter-inner reveal">
+      <h2 class="newsletter-title">Join the<br><em>Alpha Circle.</em></h2>
+      <p class="newsletter-sub">
+        Be the first to discover drops, collections, and exclusive releases.
+        Members receive early access and limited edition announcements.
+      </p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="email" placeholder="Your email address"/>
+        <button class="newsletter-btn">Subscribe</button>
+      </div>
+      <p class="newsletter-note">No spam. Unsubscribe any time. Your data is protected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">ALPHA <span>WEARS</span></a>
+        <p class="footer-tagline">Aloha Mentality.<br>Confidence, movement, and presence.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Instagram">IG</a>
+          <a href="#" class="social-link" title="TikTok">TK</a>
+          <a href="#" class="social-link" title="YouTube">YT</a>
+          <a href="#" class="social-link" title="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">T-Shirts</a></li>
+          <li><a href="#">Hoodies</a></li>
+          <li><a href="#">Jackets</a></li>
+          <li><a href="#">Caps</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Lookbook</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping &amp; Returns</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Alpha Wears. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     CART OVERLAY + DRAWER
+════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-title">
+      Your Cart <span id="cartBadgeDrawer">0 items</span>
+    </div>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItemsContainer">
+    <!-- populated by main.js -->
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-value" id="cartSubtotal">$0.00</span>
+    </div>
+    <p class="cart-note">Shipping &amp; taxes calculated at checkout. Free delivery on orders over $200.</p>
+    <div class="cart-footer-btns">
+      <button class="btn-whatsapp-checkout" id="btnWhatsappCheckout">
+        <span class="wa-icon">📲</span>
+        Checkout via WhatsApp
+      </button>
+      <button class="btn-continue-shopping" id="btnContinue">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     WHATSAPP FLOAT BUTTON
+════════════════════════════════════ -->
+<div class="wa-float">
+  <div class="wa-tooltip">Chat with us on WhatsApp</div>
+  <button class="wa-btn" id="waFloatBtn" title="Chat on WhatsApp">💬</button>
+</div>
+
+<!-- ════════════════════════════════════
+     CONTACT MODAL
+════════════════════════════════════ -->
+<div class="modal-overlay" id="contactModal">
+  <div class="contact-modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <p class="modal-label">Alpha Wears Support</p>
+    <h2 class="modal-title">Send us<br>a message.</h2>
+    <p class="modal-sub">
+      We typically reply within a few minutes. Let us know how we can help —
+      orders, sizing, styling advice, or anything else.
+    </p>
+    <div class="modal-field">
+      <label>Your Name</label>
+      <input class="modal-input" id="contactName" type="text" placeholder="e.g. Alex Johnson"/>
+    </div>
+    <div class="modal-field">
+      <label>Message</label>
+      <textarea class="modal-textarea" id="contactMessage" placeholder="Hi! I'd like to know about…"></textarea>
+    </div>
+    <button class="btn-send-wa" id="btnSendMsg">
+      <span>📲</span> Send via WhatsApp
+    </button>
+    <p class="modal-wa-note">
+      You'll be redirected to WhatsApp to complete sending your message.<br>
+      Our number: +234 909 864 1755
+    </p>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<!-- ── JavaScript (deferred so DOM is ready) ── -->
+<script src="main.js" defer></script>
+</body>
+</html>
