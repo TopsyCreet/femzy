@@ -50,6 +50,33 @@ const revealObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 /* ══════════════════════════════════════
+   HERO IMAGE SLIDER — autoplay
+══════════════════════════════════════ */
+(function initHeroSlider() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+
+  let current = 0;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current]?.classList.add('active');
+  }
+
+  // Dot clicks
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide)));
+  });
+
+  // Autoplay every 5s
+  setInterval(() => goTo(current + 1), 5000);
+})();
+
+/* ══════════════════════════════════════
    TICKER — duplicate for seamless loop
 ══════════════════════════════════════ */
 const tickerInner = document.getElementById('ticker');
