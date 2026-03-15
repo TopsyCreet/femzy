@@ -128,10 +128,10 @@ const WA_NUMBER = '2349098641755';
 
 /** Product catalogue — must match the cards in index.html */
 const PRODUCTS = {
-  'Alpha Oversized Tee':  { price: 89,  category: 'Tees',      gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '⌘' },
-  'Aloha Hoodie':         { price: 149, category: 'Hoodies',   gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '◈' },
-  'Alpha Varsity Jacket': { price: 295, category: 'Outerwear', gradient: 'linear-gradient(145deg,#0d1f35,#1a3a5c,#0a1628)', icon: '◉' },
-  'Alpha Cap — Midnight': { price: 65,  category: 'Caps',      gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
+  'Mentality Tracksuit':  { price: 50000,  category: 'Tracksuits', gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '⌘' },
+  'Mentality Tanktop':    { price: 20000,  category: 'Tanktops',   gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '◈' },
+  'Alpha Varsity Jacket': { price: 295000, category: 'Outerwear',  gradient: 'linear-gradient(145deg,#0d1f35,#1a3a5c,#0a1628)', icon: '◉' },
+  'Alpha Cap — Midnight': { price: 65000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
 };
 
 /** @type {{ name: string, price: number, category: string, qty: number, gradient: string, icon: string }[]} */
@@ -215,13 +215,13 @@ function renderCart() {
             <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
           </div>
           <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">Remove</button>
-          <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+          <span class="cart-item-price">₦${(item.price * item.qty).toLocaleString()}</span>
         </div>
       </div>
     </div>`).join('');
 
   const subtotalEl = document.getElementById('cartSubtotal');
-  if (subtotalEl) subtotalEl.textContent = `$${getCartTotal().toFixed(2)}`;
+  if (subtotalEl) subtotalEl.textContent = `₦${getCartTotal().toLocaleString()}`;
 }
 
 /* ── Open / Close Cart ── */
@@ -243,8 +243,8 @@ document.getElementById('btnNavCart')?.addEventListener('click', openCart);
 
 /* ── Add-to-Cart buttons (product cards) ── */
 const productNames = [
-  'Alpha Oversized Tee',
-  'Aloha Hoodie',
+  'Mentality Tracksuit',
+  'Mentality Tanktop',
   'Alpha Varsity Jacket',
   'Alpha Cap — Midnight',
 ];
@@ -270,9 +270,9 @@ document.querySelectorAll('.btn-add-cart').forEach((btn, i) => {
 ══════════════════════════════════════ */
 document.getElementById('btnWhatsappCheckout')?.addEventListener('click', () => {
   if (cart.length === 0) return;
-  const lines = cart.map(i => `• ${i.name} (x${i.qty}) — $${(i.price * i.qty).toFixed(2)}`).join('\n');
-  const total = getCartTotal().toFixed(2);
-  const msg   = `Hello Alpha Wears! 👋\n\nI'd like to place an order:\n\n${lines}\n\n*Total: $${total}*\n\nPlease confirm availability and shipping details. Thank you!`;
+  const lines = cart.map(i => `• ${i.name} (x${i.qty}) — ₦${(i.price * i.qty).toLocaleString()}`).join('\n');
+  const total = getCartTotal().toLocaleString();
+  const msg   = `Hello Alpha Wears! 👋\n\nI'd like to place an order:\n\n${lines}\n\n*Total: ₦${total}*\n\nPlease confirm availability and shipping details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 });
 
@@ -323,6 +323,19 @@ document.getElementById('btnSendMsg')?.addEventListener('click', () => {
 ══════════════════════════════════════ */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeCart(); closeModal(); }
+});
+
+/* ══════════════════════════════════════
+   COLOR SWATCHES — tracksuit image switcher
+══════════════════════════════════════ */
+document.querySelectorAll('.swatch').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const target = document.getElementById(this.dataset.target);
+    if (target) target.src = this.dataset.img;
+    document.querySelectorAll(`.swatch[data-target="${this.dataset.target}"]`)
+      .forEach(s => s.classList.remove('active'));
+    this.classList.add('active');
+  });
 });
 
 /* ══════════════════════════════════════

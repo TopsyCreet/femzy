@@ -274,6 +274,34 @@ nav.scrolled .menu-btn { color: var(--dark); }
 }
 .p-img-icon { font-size: 2.5rem; opacity: 0.14; color: var(--gold); }
 
+/* Product real image (Mentality Tracksuit) */
+.prod-color-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .prod-color-img { transform: scale(1.03); }
+
+/* Color swatches */
+.color-swatches {
+  display: flex; gap: 7px; margin: 8px 0 4px;
+}
+.swatch {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #1a1a1a;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  cursor: pointer;
+  transition: outline-color 0.2s;
+  padding: 0;
+}
+.swatch.active,
+.swatch:hover {
+  outline-color: var(--dark);
+  outline-offset: 2px;
+}
+
 /* ══════════════════════════════════════
    EDITORIAL BANNER — full-width image
    (like ZTTW's binoculars shot between sections)
