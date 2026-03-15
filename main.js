@@ -131,7 +131,7 @@ const PRODUCTS = {
   'Mentality Tracksuit':  { price: 50000,  category: 'Tracksuits', gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '⌘' },
   'Mentality Tanktop':    { price: 20000,  category: 'Tanktops',   gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '◈' },
   'Mentality Baseball Cap': { price: 25000, category: 'Caps', gradient: 'linear-gradient(145deg,#0d1f35,#1a3a5c,#0a1628)', icon: '◉' },
-  'Alpha Cap — Midnight': { price: 65000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
+  'Mentality Snapback':   { price: 20000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
 };
 
 /** @type {{ name: string, price: number, category: string, qty: number, gradient: string, icon: string }[]} */
@@ -246,7 +246,7 @@ const productNames = [
   'Mentality Tracksuit',
   'Mentality Tanktop',
   'Mentality Baseball Cap',
-  'Alpha Cap — Midnight',
+  'Mentality Snapback',
 ];
 
 document.querySelectorAll('.btn-add-cart').forEach((btn, i) => {
