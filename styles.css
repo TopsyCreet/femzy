@@ -55,6 +55,11 @@ body:has(button:hover) #cursor { width: 13px; height: 13px; }
 body:has(a:hover) #cursor-ring,
 body:has(button:hover) #cursor-ring { width: 44px; height: 44px; opacity: 0.3; }
 
+@media (hover: none) {
+  #cursor, #cursor-ring { display: none; }
+  body, * { cursor: auto !important; }
+}
+
 /* ══════════════════════════════════════
    NAVIGATION — ZTTW style
    Transparent over hero, 3-col: links | logo | actions
