@@ -229,6 +229,7 @@
       <div class="look-prod-card">
         <div class="look-prod-img-wrap">
           <img src="images/hoodie/hoodie_purple.jpeg" alt="Alpha Prime Lifestyle Hoodie" class="look-prod-img prod-color-img" id="hoodie-main"/>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <p class="look-prod-name">Alpha Prime Lifestyle Hoodie</p>
         <div class="color-swatches">
@@ -238,11 +239,11 @@
           <button class="swatch" data-target="hoodie-main" data-img="images/hoodie/hoodie_white.jpeg" title="White" style="background:#f0f0f0;border-color:#ccc"></button>
         </div>
         <p class="look-prod-price">₦70,000</p>
-        <button class="btn-add-cart look-add-cart">Add to Cart</button>
       </div>
       <div class="look-prod-card">
         <div class="look-prod-img-wrap">
           <img src="images/shorts/short_black.jpeg" alt="Alpha Prime Lifestyle Shorts" class="look-prod-img prod-color-img" id="shorts-main"/>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <p class="look-prod-name">Alpha Prime Lifestyle Shorts</p>
         <div class="color-swatches">
@@ -252,11 +253,11 @@
           <button class="swatch" data-target="shorts-main" data-img="images/shorts/short_purple.jpeg" title="Purple" style="background:#7b1fa2"></button>
         </div>
         <p class="look-prod-price">₦25,000</p>
-        <button class="btn-add-cart look-add-cart">Add to Cart</button>
       </div>
       <div class="look-prod-card">
         <div class="look-prod-img-wrap">
           <img src="images/flex_shirt/flex_black.jpeg" alt="Alpha Flex Shirt" class="look-prod-img prod-color-img" id="flex-main"/>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <p class="look-prod-name">Alpha Flex Shirt</p>
         <div class="color-swatches">
@@ -266,11 +267,11 @@
           <button class="swatch" data-target="flex-main" data-img="images/flex_shirt/flex_yellow.jpeg" title="Yellow" style="background:#f5c518"></button>
         </div>
         <p class="look-prod-price">₦40,000</p>
-        <button class="btn-add-cart look-add-cart">Add to Cart</button>
       </div>
       <div class="look-prod-card">
         <div class="look-prod-img-wrap">
           <img src="images/cargo/cargo_wb.png" alt="Alpha Flex Cargo Pant" class="look-prod-img prod-color-img" id="cargo-main"/>
+          <div class="product-actions"><button class="btn-add-cart">Add to Cart</button></div>
         </div>
         <p class="look-prod-name">Alpha Flex Cargo Pant</p>
         <div class="color-swatches">
@@ -279,12 +280,10 @@
           <button class="swatch" data-target="cargo-main" data-img="images/cargo/cargo_white.png" title="White" style="background:#f0f0f0;border-color:#ccc"></button>
         </div>
         <p class="look-prod-price">₦35,000</p>
-        <button class="btn-add-cart look-add-cart">Add to Cart</button>
       </div>
     </div>
 
     <div class="shop-look-editorial">
-      <p class="shop-look-label">Alpha Leather Luxe Fit</p>
       <div class="jacket-carousel" id="jacketCarousel">
         <div class="jacket-carousel-track" id="jacketTrack">
           <img src="images/jacket/jacket_black.jpeg" alt="Alpha Leather Luxe Fit" class="jacket-slide"/>
@@ -300,6 +299,12 @@
         </div>
       </div>
       <div class="shop-look-cta">
+        <p class="shop-look-label">Alpha Leather Luxe Fit</p>
+        <div class="color-swatches" style="margin:6px 0;">
+          <button class="swatch active" data-idx="0" title="Black" onclick="jacketGoTo(0,this)"></button>
+          <button class="swatch" data-idx="1" title="Red" style="background:#c62828" onclick="jacketGoTo(1,this)"></button>
+          <button class="swatch" data-idx="2" title="Yellow" style="background:#f9c400" onclick="jacketGoTo(2,this)"></button>
+        </div>
         <p class="shop-look-price">₦80,000</p>
         <button class="btn-view btn-add-cart-jacket" id="btnAddJacket">ADD TO CART</button>
       </div>
