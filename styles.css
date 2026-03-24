@@ -537,13 +537,13 @@ footer { background: var(--beige); padding: 60px 0 32px; color: var(--dark); }
 }
 .social-links { display: flex; gap: 14px; flex-wrap: wrap; }
 .social-link {
-  font-family: var(--font-b); font-size: 0.75rem; font-weight: 500;
   color: var(--dark); text-decoration: none; cursor: none;
-  transition: color 0.22s;
+  transition: color 0.22s, border-color 0.22s;
   border: 1px solid rgba(33,33,33,0.2);
-  width: 34px; height: 34px; border-radius: 50%;
+  width: 38px; height: 38px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
 }
+.social-link svg { width: 18px; height: 18px; fill: currentColor; display: block; }
 .social-link:hover { color: var(--gold); border-color: var(--gold); }
 .footer-bottom {
   border-top: 1px solid rgba(33,33,33,0.12); padding-top: 22px;
