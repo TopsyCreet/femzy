@@ -280,11 +280,16 @@ document.getElementById('btnContinue')?.addEventListener('click', closeCart);
   let cur = 0;
   const total = 3;
 
+  const swatches = document.querySelectorAll('.shop-look-cta .swatch');
+
   function goTo(n) {
     cur = (n + total) % total;
     track.style.transform = `translateX(-${cur * 100}%)`;
     dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    swatches.forEach((s, i) => s.classList.toggle('active', i === cur));
   }
+
+  window.jacketGoTo = function(n, el) { goTo(n); };
 
   document.getElementById('jacketPrev')?.addEventListener('click', () => goTo(cur - 1));
   document.getElementById('jacketNext')?.addEventListener('click', () => goTo(cur + 1));
