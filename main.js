@@ -157,15 +157,16 @@ function updateCartBadge() {
   if (drawer) drawer.textContent = n === 0 ? '0 items' : `${n} item${n !== 1 ? 's' : ''}`;
 }
 
-function addToCart(productName, color) {
+function addToCart(productName, color, imgSrc) {
   const p = PRODUCTS[productName];
   if (!p) return;
   const selectedColor = color || 'Not specified';
   const existing = cart.find(i => i.name === productName && i.color === selectedColor);
   if (existing) {
     existing.qty++;
+    if (imgSrc) existing.imgSrc = imgSrc;
   } else {
-    cart.push({ name: productName, price: p.price, category: p.category, qty: 1, gradient: p.gradient, icon: p.icon, color: selectedColor, size: '' });
+    cart.push({ name: productName, price: p.price, category: p.category, qty: 1, gradient: p.gradient, icon: p.icon, color: selectedColor, size: '', imgSrc: imgSrc || '' });
   }
   updateCartBadge();
   renderCart();
@@ -217,8 +218,11 @@ function renderCart() {
   footer.style.display = 'block';
   container.innerHTML = cart.map(item => `
     <div class="cart-item" data-name="${item.name}">
-      <div class="cart-item-img" style="background:${item.gradient}">
-        <span style="font-size:2.2rem;opacity:0.18;color:var(--gold)">${item.icon}</span>
+      <div class="cart-item-img">
+        ${item.imgSrc
+          ? `<img src="${item.imgSrc}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>`
+          : `<div style="width:100%;height:100%;background:${item.gradient};display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;opacity:0.18;color:var(--gold)">${item.icon}</span></div>`
+        }
       </div>
       <div class="cart-item-details">
         <p class="cart-item-brand">Alpha Wears</p>
@@ -297,7 +301,8 @@ document.getElementById('btnContinue')?.addEventListener('click', closeCart);
   // Add jacket to cart
   document.getElementById('btnAddJacket')?.addEventListener('click', () => {
     const colors = ['Black', 'Red', 'Yellow'];
-    addToCart('Alpha Leather Luxe Fit', colors[cur]);
+    const imgs   = ['images/jacket/jacket_black.jpeg','images/jacket/jacket_red.jpeg','images/jacket/jacket_yellow.jpeg'];
+    addToCart('Alpha Leather Luxe Fit', colors[cur], window.location.origin + '/' + imgs[cur]);
     const btn = document.getElementById('btnAddJacket');
     btn.textContent = '✓ Added';
     btn.style.background = 'var(--gold)';
@@ -307,21 +312,18 @@ document.getElementById('btnContinue')?.addEventListener('click', closeCart);
 document.getElementById('btnNavCart')?.addEventListener('click', openCart);
 
 /* ── Add-to-Cart buttons (product cards) ── */
-const productNames = [
-  'Mentality Tracksuit',
-  'Mentality Tanktop',
-  'Mentality Baseball Cap',
-  'Mentality Snapback',
-];
-
-document.querySelectorAll('.btn-add-cart').forEach((btn, i) => {
+document.querySelectorAll('.btn-add-cart').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
-    const name = productNames[i] || 'Alpha Oversized Tee';
     const card = btn.closest('.product-card') || btn.closest('.look-prod-card');
-    const activeSwatch = card ? card.querySelector('.swatch.active') : null;
-    const color = activeSwatch ? activeSwatch.title : 'Default';
-    addToCart(name, color);
+    if (!card) return;
+    const nameEl = card.querySelector('.product-name') || card.querySelector('.look-prod-name');
+    const name   = nameEl ? nameEl.textContent.trim() : '';
+    const activeSwatch = card.querySelector('.swatch.active');
+    const color  = activeSwatch ? activeSwatch.title : 'Default';
+    const img    = card.querySelector('.prod-color-img');
+    const imgSrc = img ? img.src : '';
+    addToCart(name, color, imgSrc);
     btn.textContent        = '✓ Added';
     btn.style.background   = 'var(--gold)';
     btn.style.color        = 'var(--black)';
