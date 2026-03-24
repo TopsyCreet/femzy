@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Size Guide — ALPHA WEARS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sg-hero {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 24px 60px;
+  }
+  .sg-hero h1 {
+    font-family: var(--font-h);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .sg-hero p {
+    font-family: var(--font-b);
+    color: #aaa;
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .sg-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  /* How to measure */
+  .measure-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 40px;
+    margin-bottom: 48px;
+  }
+  .measure-section h2 {
+    font-family: var(--font-h);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .measure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .measure-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .measure-icon {
+    width: 40px; height: 40px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .measure-item h3 {
+    font-family: var(--font-h);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .measure-item p {
+    font-size: 0.83rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* Category tabs */
+  .sg-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 36px;
+    overflow-x: auto;
+  }
+  .sg-tab {
+    font-family: var(--font-h);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    color: var(--gray);
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sg-tab.active {
+    color: var(--dark);
+    border-bottom-color: var(--dark);
+  }
+
+  /* Size chart */
+  .sg-chart { display: none; }
+  .sg-chart.active { display: block; }
+
+  .chart-title {
+    font-family: var(--font-h);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .chart-subtitle {
+    font-size: 0.83rem;
+    color: var(--gray);
+    margin-bottom: 24px;
+  }
+
+  .size-table-wrap { overflow-x: auto; margin-bottom: 36px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead tr {
+    background: var(--dark);
+    color: var(--white);
+  }
+  thead th {
+    font-family: var(--font-h);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    text-align: center;
+  }
+  thead th:first-child { text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:nth-child(even) { background: var(--cream); }
+  tbody td {
+    padding: 13px 18px;
+    text-align: center;
+    font-family: var(--font-b);
+    color: var(--dark);
+  }
+  tbody td:first-child {
+    text-align: left;
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+
+  .chart-note {
+    background: #fff8ee;
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    font-size: 0.83rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-top: 12px;
+    border-radius: 0 var(--r) var(--r) 0;
+  }
+
+  /* Unit toggle */
+  .unit-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    width: fit-content;
+    overflow: hidden;
+  }
+  .unit-btn {
+    font-family: var(--font-h);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray);
+    transition: background 0.2s, color 0.2s;
+  }
+  .unit-btn.active {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  /* Fit tip cards */
+  .fit-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .fit-tip-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+  }
+  .fit-tip-card h4 {
+    font-family: var(--font-h);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+  .fit-tip-card p {
+    font-size: 0.83rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  /* CTA */
+  .sg-cta {
+    text-align: center;
+    padding: 60px 24px;
+    background: var(--dark);
+    color: var(--white);
+    margin-top: 60px;
+  }
+  .sg-cta h3 {
+    font-family: var(--font-h);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sg-cta p {
+    color: #aaa;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+  }
+  .sg-cta a {
+    display: inline-block;
+    padding: 13px 36px;
+    background: var(--white);
+    color: var(--dark);
+    font-family: var(--font-h);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--r);
+    transition: background 0.2s, color 0.2s;
+  }
+  .sg-cta a:hover { background: var(--gold); color: var(--white); }
+
+  @media (max-width: 600px) {
+    .measure-section { padding: 24px 18px; }
+    .sg-tab { padding: 12px 16px; font-size: 0.7rem; }
+    thead th, tbody td { padding: 11px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="scrolled">
+  <ul class="nav-links">
+    <li><a href="index.html#new-arrivals">Shop</a></li>
+    <li><a href="index.html#categories">Collections</a></li>
+    <li><a href="index.html#lookbook">Gallery</a></li>
+    <li><a href="index.html#about">About</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo">ALPHA <span>WEARS</span></a>
+  <div class="nav-actions">
+    <button id="btnNavSearch">Search</button>
+    <div class="nav-cart">
+      <button id="btnNavCart">Cart</button>
+      <span class="cart-count">0</span>
+    </div>
+    <button class="menu-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="sg-hero">
+  <h1>Size Guide</h1>
+  <p>Find your perfect fit. All measurements are in centimetres (cm) unless toggled to inches.</p>
+</div>
+
+<div class="sg-container">
+
+  <!-- HOW TO MEASURE -->
+  <div class="measure-section">
+    <h2>How to Measure Yourself</h2>
+    <div class="measure-grid">
+      <div class="measure-item">
+        <div class="measure-icon">📏</div>
+        <div>
+          <h3>Chest</h3>
+          <p>Measure around the fullest part of your chest, keeping the tape horizontal under your arms.</p>
+        </div>
+      </div>
+      <div class="measure-item">
+        <div class="measure-icon">📐</div>
+        <div>
+          <h3>Waist</h3>
+          <p>Measure around your natural waistline — the narrowest part of your torso.</p>
+        </div>
+      </div>
+      <div class="measure-item">
+        <div class="measure-icon">↕️</div>
+        <div>
+          <h3>Hips</h3>
+          <p>Measure around the fullest part of your hips, about 20cm below your waistline.</p>
+        </div>
+      </div>
+      <div class="measure-item">
+        <div class="measure-icon">📍</div>
+        <div>
+          <h3>Inseam</h3>
+          <p>Measure from your crotch seam to the bottom of your leg along the inner thigh.</p>
+        </div>
+      </div>
+      <div class="measure-item">
+        <div class="measure-icon">🔵</div>
+        <div>
+          <h3>Shoulders</h3>
+          <p>Measure from the edge of one shoulder to the other across the back.</p>
+        </div>
+      </div>
+      <div class="measure-item">
+        <div class="measure-icon">💡</div>
+        <div>
+          <h3>Pro Tip</h3>
+          <p>Use a soft measuring tape and wear fitted clothing. If between sizes, size up for a relaxed fit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT TOGGLE -->
+  <div class="unit-toggle">
+    <button class="unit-btn active" onclick="setUnit('cm', this)">CM</button>
+    <button class="unit-btn" onclick="setUnit('in', this)">INCHES</button>
+  </div>
+
+  <!-- TABS -->
+  <div class="sg-tabs">
+    <button class="sg-tab active" onclick="showChart('tops', this)">Tops &amp; Shirts</button>
+    <button class="sg-tab" onclick="showChart('hoodies', this)">Hoodies &amp; Jackets</button>
+    <button class="sg-tab" onclick="showChart('pants', this)">Pants &amp; Shorts</button>
+    <button class="sg-tab" onclick="showChart('headwear', this)">Headwear</button>
+  </div>
+
+  <!-- TOPS -->
+  <div class="sg-chart active" id="chart-tops">
+    <p class="chart-title">Tops &amp; Shirts</p>
+    <p class="chart-subtitle">Alpha SS '22 Shirt · Alpha Flex Shirt · Mentality Tanktop</p>
+    <div class="size-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest <span class="unit-label">(cm)</span></th>
+            <th>Shoulder <span class="unit-label">(cm)</span></th>
+            <th>Length <span class="unit-label">(cm)</span></th>
+            <th>Sleeve <span class="unit-label">(cm)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td class="cm">84–88</td><td class="cm">41</td><td class="cm">66</td><td class="cm">59</td>
+            <td class="in" style="display:none">33–35</td><td class="in" style="display:none">16.1</td><td class="in" style="display:none">26</td><td class="in" style="display:none">23.2</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td class="cm">88–94</td><td class="cm">43</td><td class="cm">69</td><td class="cm">61</td>
+            <td class="in" style="display:none">34.6–37</td><td class="in" style="display:none">16.9</td><td class="in" style="display:none">27.2</td><td class="in" style="display:none">24</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td class="cm">94–100</td><td class="cm">45</td><td class="cm">72</td><td class="cm">63</td>
+            <td class="in" style="display:none">37–39.4</td><td class="in" style="display:none">17.7</td><td class="in" style="display:none">28.3</td><td class="in" style="display:none">24.8</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td class="cm">100–108</td><td class="cm">47</td><td class="cm">75</td><td class="cm">65</td>
+            <td class="in" style="display:none">39.4–42.5</td><td class="in" style="display:none">18.5</td><td class="in" style="display:none">29.5</td><td class="in" style="display:none">25.6</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td class="cm">108–116</td><td class="cm">49</td><td class="cm">77</td><td class="cm">67</td>
+            <td class="in" style="display:none">42.5–45.7</td><td class="in" style="display:none">19.3</td><td class="in" style="display:none">30.3</td><td class="in" style="display:none">26.4</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td class="cm">116–124</td><td class="cm">51</td><td class="cm">80</td><td class="cm">69</td>
+            <td class="in" style="display:none">45.7–48.8</td><td class="in" style="display:none">20.1</td><td class="in" style="display:none">31.5</td><td class="in" style="display:none">27.2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="chart-note">💡 Our tops are cut in a relaxed oversized fit. If you prefer a closer fit, we recommend sizing down one size.</p>
+  </div>
+
+  <!-- HOODIES & JACKETS -->
+  <div class="sg-chart" id="chart-hoodies">
+    <p class="chart-title">Hoodies &amp; Jackets</p>
+    <p class="chart-subtitle">Alpha Prime Lifestyle Hoodie · Alpha Leather Luxe Fit</p>
+    <div class="size-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest <span class="unit-label">(cm)</span></th>
+            <th>Shoulder <span class="unit-label">(cm)</span></th>
+            <th>Length <span class="unit-label">(cm)</span></th>
+            <th>Sleeve <span class="unit-label">(cm)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td class="cm">88–92</td><td class="cm">43</td><td class="cm">65</td><td class="cm">60</td>
+            <td class="in" style="display:none">34.6–36.2</td><td class="in" style="display:none">16.9</td><td class="in" style="display:none">25.6</td><td class="in" style="display:none">23.6</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td class="cm">92–98</td><td class="cm">45</td><td class="cm">68</td><td class="cm">62</td>
+            <td class="in" style="display:none">36.2–38.6</td><td class="in" style="display:none">17.7</td><td class="in" style="display:none">26.8</td><td class="in" style="display:none">24.4</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td class="cm">98–104</td><td class="cm">47</td><td class="cm">71</td><td class="cm">64</td>
+            <td class="in" style="display:none">38.6–40.9</td><td class="in" style="display:none">18.5</td><td class="in" style="display:none">28</td><td class="in" style="display:none">25.2</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td class="cm">104–112</td><td class="cm">49</td><td class="cm">74</td><td class="cm">66</td>
+            <td class="in" style="display:none">40.9–44.1</td><td class="in" style="display:none">19.3</td><td class="in" style="display:none">29.1</td><td class="in" style="display:none">26</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td class="cm">112–120</td><td class="cm">51</td><td class="cm">77</td><td class="cm">68</td>
+            <td class="in" style="display:none">44.1–47.2</td><td class="in" style="display:none">20.1</td><td class="in" style="display:none">30.3</td><td class="in" style="display:none">26.8</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td class="cm">120–128</td><td class="cm">53</td><td class="cm">80</td><td class="cm">70</td>
+            <td class="in" style="display:none">47.2–50.4</td><td class="in" style="display:none">20.9</td><td class="in" style="display:none">31.5</td><td class="in" style="display:none">27.6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="chart-note">💡 Hoodies and jackets are designed with an oversized silhouette. Leather jackets run slightly slim — size up if unsure.</p>
+  </div>
+
+  <!-- PANTS & SHORTS -->
+  <div class="sg-chart" id="chart-pants">
+    <p class="chart-title">Pants &amp; Shorts</p>
+    <p class="chart-subtitle">Alpha SS Pant · Alpha Flex Cargo Pant · Mentality Stripped Pant · Alpha Prime Lifestyle Shorts</p>
+    <div class="size-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Waist <span class="unit-label">(cm)</span></th>
+            <th>Hips <span class="unit-label">(cm)</span></th>
+            <th>Inseam <span class="unit-label">(cm)</span></th>
+            <th>Length <span class="unit-label">(cm)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td class="cm">68–72</td><td class="cm">88–92</td><td class="cm">74</td><td class="cm">94</td>
+            <td class="in" style="display:none">26.8–28.3</td><td class="in" style="display:none">34.6–36.2</td><td class="in" style="display:none">29.1</td><td class="in" style="display:none">37</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td class="cm">72–76</td><td class="cm">92–96</td><td class="cm">76</td><td class="cm">97</td>
+            <td class="in" style="display:none">28.3–29.9</td><td class="in" style="display:none">36.2–37.8</td><td class="in" style="display:none">29.9</td><td class="in" style="display:none">38.2</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td class="cm">76–82</td><td class="cm">96–102</td><td class="cm">78</td><td class="cm">99</td>
+            <td class="in" style="display:none">29.9–32.3</td><td class="in" style="display:none">37.8–40.2</td><td class="in" style="display:none">30.7</td><td class="in" style="display:none">39</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td class="cm">82–88</td><td class="cm">102–108</td><td class="cm">80</td><td class="cm">101</td>
+            <td class="in" style="display:none">32.3–34.6</td><td class="in" style="display:none">40.2–42.5</td><td class="in" style="display:none">31.5</td><td class="in" style="display:none">39.8</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td class="cm">88–96</td><td class="cm">108–116</td><td class="cm">81</td><td class="cm">103</td>
+            <td class="in" style="display:none">34.6–37.8</td><td class="in" style="display:none">42.5–45.7</td><td class="in" style="display:none">31.9</td><td class="in" style="display:none">40.6</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td class="cm">96–104</td><td class="cm">116–124</td><td class="cm">82</td><td class="cm">105</td>
+            <td class="in" style="display:none">37.8–40.9</td><td class="in" style="display:none">45.7–48.8</td><td class="in" style="display:none">32.3</td><td class="in" style="display:none">41.3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="chart-note">💡 Cargo and stripped pants have an elastic/drawstring waist — they accommodate a wider range. Shorts length is approximately 45–50cm from waistband.</p>
+  </div>
+
+  <!-- HEADWEAR -->
+  <div class="sg-chart" id="chart-headwear">
+    <p class="chart-title">Headwear</p>
+    <p class="chart-subtitle">Mentality Baseball Cap · Mentality Snapback · Alpha Head Gear</p>
+    <div class="size-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Head Circumference <span class="unit-label">(cm)</span></th>
+            <th>Fit Type</th>
+            <th>Adjustable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S/M</td>
+            <td class="cm">54–57</td>
+            <td class="in" style="display:none">21.3–22.4</td>
+            <td>Structured</td>
+            <td>Yes — strap back</td>
+          </tr>
+          <tr>
+            <td>M/L</td>
+            <td class="cm">57–60</td>
+            <td class="in" style="display:none">22.4–23.6</td>
+            <td>Structured</td>
+            <td>Yes — snapback</td>
+          </tr>
+          <tr>
+            <td>L/XL</td>
+            <td class="cm">60–63</td>
+            <td class="in" style="display:none">23.6–24.8</td>
+            <td>Relaxed</td>
+            <td>Yes — snapback</td>
+          </tr>
+          <tr>
+            <td>One Size</td>
+            <td class="cm">54–62</td>
+            <td class="in" style="display:none">21.3–24.4</td>
+            <td>Flexible</td>
+            <td>Yes — fully adjustable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="chart-note">💡 To measure your head, wrap a soft tape around your head just above the ears and eyebrows. All Alpha headwear features adjustable closures for a custom fit.</p>
+  </div>
+
+  <!-- FIT TIPS -->
+  <div class="fit-tips">
+    <div class="fit-tip-card">
+      <h4>Between Sizes?</h4>
+      <p>We always recommend sizing up for a more relaxed, streetwear silhouette. Size down for a fitted, structured look.</p>
+    </div>
+    <div class="fit-tip-card">
+      <h4>Washing &amp; Care</h4>
+      <p>Cold wash only. Do not tumble dry. Iron inside out on low heat. This preserves the shape and print quality of your Alpha gear.</p>
+    </div>
+    <div class="fit-tip-card">
+      <h4>Still Unsure?</h4>
+      <p>Reach out on Instagram <strong>@alpha.wears</strong> or WhatsApp and our team will help you find the right size.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="sg-cta">
+  <h3>Ready to Shop?</h3>
+  <p>Now that you know your size, explore the full collection.</p>
+  <a href="index.html#new-arrivals">Shop Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer id="about">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/alpha.wears?igsh=MXhzMG90eXk0OXZidA==" class="social-link" title="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="mailto:Alphawears1@gmail.com" class="social-link" title="Gmail">GM</a>
+          <a href="https://wa.me/" class="social-link" title="WhatsApp" target="_blank" rel="noopener">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="size-guide.html">Size Guide</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© Alpha Prime Wears. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  function showChart(id, btn) {
+    document.querySelectorAll('.sg-chart').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.sg-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('chart-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function setUnit(unit, btn) {
+    document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const isCm = unit === 'cm';
+    document.querySelectorAll('.cm').forEach(el => el.style.display = isCm ? '' : 'none');
+    document.querySelectorAll('.in').forEach(el => el.style.display = isCm ? 'none' : '');
+    document.querySelectorAll('.unit-label').forEach(el => el.textContent = isCm ? '(cm)' : '(in)');
+  }
+</script>
+</body>
+</html>

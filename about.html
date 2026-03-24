@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us — ALPHA WEARS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  /* HERO */
+  .about-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 520px;
+    background-image: url('images/femzy.jpeg');
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  }
+  .about-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 48px;
+    max-width: 700px;
+  }
+  .about-hero-eyebrow {
+    font-family: var(--font-h);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .about-hero-content h1 {
+    font-family: var(--font-h);
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .about-hero-content h1 span { color: var(--gold); }
+  .about-hero-tagline {
+    font-family: var(--font-b);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* MAIN CONTENT */
+  .about-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  /* INTRO BLOCK */
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  .about-intro-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .about-intro-text {}
+  .about-label {
+    font-family: var(--font-h);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .about-intro-text h2 {
+    font-family: var(--font-h);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    margin-bottom: 24px;
+    color: var(--dark);
+  }
+  .about-intro-text p {
+    font-size: 0.92rem;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+
+  /* PULL QUOTE */
+  .about-quote {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 40px;
+    margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-quote::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-h);
+    font-size: 14rem;
+    color: rgba(171,140,82,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .about-quote blockquote {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-h);
+    font-size: clamp(1.1rem, 3vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    max-width: 680px;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-style: italic;
+  }
+  .about-quote cite {
+    font-family: var(--font-h);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* PILLARS */
+  .about-pillars {
+    margin-bottom: 80px;
+  }
+  .about-pillars-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .about-pillars-header h2 {
+    font-family: var(--font-h);
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .about-pillars-header p {
+    font-size: 0.88rem;
+    color: var(--gray);
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pillar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .pillar-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .pillar-card h3 {
+    font-family: var(--font-h);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .pillar-card p {
+    font-size: 0.84rem;
+    color: var(--gray);
+    line-height: 1.75;
+  }
+
+  /* IMAGE STRIP */
+  .about-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 80px;
+  }
+  .about-strip-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* MISSION */
+  .about-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  .about-mission-text h2 {
+    font-family: var(--font-h);
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .about-mission-text p {
+    font-size: 0.92rem;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+  .about-mission-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* CTA BANNER */
+  .about-cta {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 24px;
+  }
+  .about-cta h2 {
+    font-family: var(--font-h);
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .about-cta h2 span { color: var(--gold); }
+  .about-cta p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+  .about-cta-links {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .about-cta-links a {
+    display: inline-block;
+    padding: 13px 34px;
+    font-family: var(--font-h);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--r);
+    transition: background 0.22s, color 0.22s, border-color 0.22s;
+  }
+  .about-cta-links a.primary {
+    background: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--white);
+  }
+  .about-cta-links a.primary:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+  .about-cta-links a.secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  .about-cta-links a.secondary:hover { border-color: var(--white); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .about-hero-content { padding: 40px 24px; }
+    .about-intro, .about-mission { grid-template-columns: 1fr; gap: 36px; }
+    .about-intro-img { aspect-ratio: 4/3; }
+    .pillars-grid { grid-template-columns: 1fr; gap: 16px; }
+    .about-strip { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .about-quote { padding: 48px 24px; }
+    .about-mission-img { order: -1; aspect-ratio: 4/3; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <ul class="nav-links">
+    <li><a href="index.html#new-arrivals">Shop</a></li>
+    <li><a href="index.html#categories">Collections</a></li>
+    <li><a href="index.html#lookbook">Gallery</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo">ALPHA <span>WEARS</span></a>
+  <div class="nav-actions">
+    <div class="nav-cart">
+      <button id="btnNavCart">Cart</button>
+      <span class="cart-count">0</span>
+    </div>
+    <button class="menu-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-overlay"></div>
+  <div class="about-hero-content">
+    <p class="about-hero-eyebrow">Est. Alpha Prime Wears</p>
+    <h1>More Than <span>Clothing.</span></h1>
+    <p class="about-hero-tagline">A statement of identity, confidence, and mindset.</p>
+  </div>
+</div>
+
+<div class="about-container">
+
+  <!-- WHO WE ARE -->
+  <div class="about-intro">
+    <img src="images/alpha-style.jpeg" alt="Alpha Wears" class="about-intro-img"/>
+    <div class="about-intro-text">
+      <span class="about-label">Who We Are</span>
+      <h2>Built on Strength &amp; Self-Leadership</h2>
+      <p>At Alpha Wears, we believe clothing is more than just fabric — it's a statement of identity, confidence, and mindset. Built on the principle of strength and self-leadership, Alpha Wears represents individuals who embrace their uniqueness and strive to stand out in every space they enter.</p>
+      <p>Our brand is dedicated to delivering high-quality, stylish, and versatile pieces designed for those who move with purpose. Every collection is crafted with attention to detail, combining modern aesthetics with comfort to ensure you look and feel your best at all times.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- QUOTE -->
+<div class="about-quote">
+  <blockquote>"Alpha Wears is not just a clothing line — it's a lifestyle."</blockquote>
+  <cite>Alpha Prime Wears</cite>
+</div>
+
+<div class="about-container">
+
+  <!-- PILLARS -->
+  <div class="about-pillars">
+    <div class="about-pillars-header">
+      <span class="about-label" style="display:block;text-align:center">What Drives Us</span>
+      <h2>The Alpha Pillars</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <span class="pillar-icon">🔥</span>
+        <h3>Ambition</h3>
+        <p>We are inspired by the drive to be more. Every stitch reflects a commitment to excellence and a refusal to settle for ordinary.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">💎</span>
+        <h3>Quality</h3>
+        <p>Premium fabrics, bold silhouettes, and meticulous construction — our pieces are built to last and designed to impress.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">👑</span>
+        <h3>Confidence</h3>
+        <p>Wear what speaks to you. Alpha Wears is for those who lead, not follow — who walk into any room and own it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE STRIP -->
+  <div class="about-strip">
+    <img src="images/lookbook-1.jpeg" alt="Alpha Wears" class="about-strip-img"/>
+    <img src="images/hero-2.jpeg" alt="Alpha Wears" class="about-strip-img"/>
+    <img src="images/okocha.jpeg" alt="Alpha Wears" class="about-strip-img"/>
+  </div>
+
+  <!-- MISSION -->
+  <div class="about-mission">
+    <div class="about-mission-text">
+      <span class="about-label">Our Mission</span>
+      <h2>Lead, Don't Follow</h2>
+      <p>We are inspired by ambition, resilience, and the drive to lead, not follow. Whether you're stepping out casually or making bold moves, our designs are made to reflect your confidence and elevate your everyday style.</p>
+      <p>Alpha Wears is for individuals who understand that the way you dress is a direct reflection of how you carry yourself. We create pieces that move with you — through hustle, through growth, through every defining moment.</p>
+      <p>Join the Alpha movement — where style meets mindset.</p>
+    </div>
+    <img src="images/alpha.jpeg" alt="Alpha Movement" class="about-mission-img"/>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="about-cta">
+  <h2>Join the <span>Alpha</span> Movement</h2>
+  <p>Explore our latest collections and find pieces that speak to who you are and who you're becoming.</p>
+  <div class="about-cta-links">
+    <a href="index.html#new-arrivals" class="primary">Shop Now</a>
+    <a href="https://www.instagram.com/alpha.wears?igsh=MXhzMG90eXk0OXZidA==" class="secondary" target="_blank" rel="noopener">Follow @alpha.wears</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/alpha.wears?igsh=MXhzMG90eXk0OXZidA==" class="social-link" title="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="mailto:Alphawears1@gmail.com" class="social-link" title="Gmail">GM</a>
+          <a href="https://wa.me/" class="social-link" title="WhatsApp" target="_blank" rel="noopener">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="size-guide.html">Size Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© Alpha Prime Wears. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

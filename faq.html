@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ — ALPHA WEARS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .faq-hero {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 24px 60px;
+  }
+  .faq-hero h1 {
+    font-family: var(--font-h);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .faq-hero p {
+    color: #aaa;
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .faq-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* Category label */
+  .faq-category {
+    font-family: var(--font-h);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 48px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-category:first-of-type { margin-top: 0; }
+
+  /* Accordion */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    font-family: var(--font-h);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--gold); }
+  .faq-icon {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--gray);
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--gold); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+  }
+  .faq-item.open .faq-answer { max-height: 600px; }
+  .faq-answer-inner {
+    padding: 0 0 22px;
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+  .faq-answer-inner a {
+    color: var(--dark);
+    text-decoration: underline;
+  }
+  .faq-answer-inner strong { color: var(--dark); }
+  .faq-answer-inner ul {
+    padding-left: 18px;
+    margin-top: 8px;
+  }
+  .faq-answer-inner ul li { margin-bottom: 6px; }
+
+  /* Still need help */
+  .faq-help {
+    margin-top: 64px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 40px;
+    text-align: center;
+  }
+  .faq-help h3 {
+    font-family: var(--font-h);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .faq-help p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+  .faq-help-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .faq-help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    font-family: var(--font-h);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dark);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .faq-help-link:hover {
+    background: var(--dark);
+    color: var(--white);
+    border-color: var(--dark);
+  }
+
+  @media (max-width: 600px) {
+    .faq-help { padding: 28px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="scrolled">
+  <ul class="nav-links">
+    <li><a href="index.html#new-arrivals">Shop</a></li>
+    <li><a href="index.html#categories">Collections</a></li>
+    <li><a href="index.html#lookbook">Gallery</a></li>
+    <li><a href="index.html#about">About</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo">ALPHA <span>WEARS</span></a>
+  <div class="nav-actions">
+    <div class="nav-cart">
+      <button id="btnNavCart">Cart</button>
+      <span class="cart-count">0</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <h1>FAQ</h1>
+  <p>Everything you need to know about Alpha Wears — orders, sizing, shipping, and more.</p>
+</div>
+
+<div class="faq-container">
+
+  <!-- ORDERS -->
+  <p class="faq-category">Orders &amp; Payment</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How do I place an order?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Browse our collections, choose your size and colour, then click <strong>Add to Cart</strong>. When you're ready, head to checkout and complete your payment. You'll receive an order confirmation via email or WhatsApp.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      What payment methods do you accept?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        We accept the following payment methods:
+        <ul>
+          <li>Bank Transfer (details provided at checkout)</li>
+          <li>Paystack (card payments — Visa, Mastercard, Verve)</li>
+          <li>Cash on Delivery (Lagos only, select areas)</li>
+        </ul>
+        All transactions are secure and encrypted.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Can I modify or cancel my order after placing it?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        You can modify or cancel your order within <strong>2 hours</strong> of placing it. After that, your order may already be packed and ready for dispatch. Contact us immediately via <a href="https://wa.me/" target="_blank">WhatsApp</a> or <a href="mailto:Alphawears1@gmail.com">email</a> and we'll do our best to help.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Will I receive an order confirmation?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Yes. Once your order is confirmed and payment is verified, you'll receive a confirmation message via WhatsApp or email with your order details and estimated delivery timeline.
+      </div>
+    </div>
+  </div>
+
+  <!-- SHIPPING -->
+  <p class="faq-category">Shipping &amp; Delivery</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Where do you ship to?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        We currently ship across <strong>Nigeria</strong>. We're working on expanding to other African countries — follow us on Instagram <strong>@alpha.wears</strong> for updates.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How long does delivery take?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <ul>
+          <li><strong>Lagos:</strong> 1–2 business days</li>
+          <li><strong>Other states:</strong> 3–5 business days</li>
+          <li><strong>Remote areas:</strong> 5–7 business days</li>
+        </ul>
+        Delivery times may vary during peak periods or public holidays.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How much does shipping cost?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Shipping fees are calculated at checkout based on your location. Orders above a certain amount may qualify for <strong>free shipping</strong> — check our homepage for current promotions.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How do I track my order?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Once your order is dispatched, we'll send you a tracking number via WhatsApp or email. You can use this to monitor your delivery in real time through our logistics partner's platform.
+      </div>
+    </div>
+  </div>
+
+  <!-- SIZING -->
+  <p class="faq-category">Sizing &amp; Fit</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How do I find my size?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Visit our <a href="size-guide.html">Size Guide</a> page for detailed measurements across all product categories including tops, hoodies, jackets, pants, shorts, and headwear. We include both cm and inch measurements.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Do Alpha Wears products run true to size?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Most of our pieces are designed with an <strong>oversized streetwear fit</strong>. If you prefer a more fitted look, we recommend sizing down. Check each product's description for specific fit notes, or reach out to us and we'll advise you directly.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      What if I'm between sizes?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        If you're between two sizes, we recommend going <strong>one size up</strong> for a relaxed streetwear silhouette. For a snug or structured fit, go <strong>one size down</strong>. When in doubt, message us on WhatsApp — we're happy to help you decide.
+      </div>
+    </div>
+  </div>
+
+  <!-- RETURNS -->
+  <p class="faq-category">Returns &amp; Exchanges</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      What is your return policy?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        We accept returns within <strong>7 days</strong> of delivery, provided the item is unworn, unwashed, and in its original condition with tags intact. Sale items and headwear are non-returnable for hygiene reasons.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How do I request an exchange?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        To exchange an item, contact us within <strong>7 days</strong> of receiving your order via WhatsApp or email. State your order number, the item you received, and the size or colour you'd like instead. Exchanges are subject to stock availability.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      What if I receive a damaged or wrong item?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        We're sorry if this happens! Please contact us immediately with your order number and a photo of the item. We'll arrange a replacement or full refund at no extra cost to you.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARE -->
+  <p class="faq-category">Product Care</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How should I wash my Alpha Wears clothing?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        To keep your pieces looking fresh:
+        <ul>
+          <li>Cold wash only (30°C or below)</li>
+          <li>Turn garments inside out before washing</li>
+          <li>Do not tumble dry — air dry flat</li>
+          <li>Iron inside out on a low heat setting</li>
+          <li>Do not bleach or dry clean</li>
+        </ul>
+        Following these steps preserves the colour, print quality, and shape of your Alpha gear.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Will the colours fade after washing?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Our garments are made with high-quality, colour-fast fabrics. With proper care (cold wash, no tumble dry), your pieces will maintain their vibrancy wash after wash. Avoid harsh detergents and prolonged exposure to direct sunlight when drying.
+      </div>
+    </div>
+  </div>
+
+  <!-- GENERAL -->
+  <p class="faq-category">General</p>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Are your products limited edition?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Many Alpha Wears drops are <strong>limited edition</strong>. Once a style sells out, it may not be restocked. We recommend securing your size early. Follow us on Instagram <strong>@alpha.wears</strong> to stay updated on new drops and restocks.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Do you restock sold-out items?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Restocks happen occasionally but are not guaranteed. If a specific item or size is sold out, contact us via WhatsApp or email and we'll let you know if a restock is planned.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Do you offer bulk or wholesale orders?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Yes, we accommodate bulk orders for events, corporate gifts, and resellers. Please reach out to us directly at <a href="mailto:Alphawears1@gmail.com">Alphawears1@gmail.com</a> with your requirements and we'll provide a custom quote.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How can I collaborate or partner with Alpha Wears?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        We're always open to creative collaborations — influencers, photographers, stylists, and brands. Send us a DM on Instagram <strong>@alpha.wears</strong> or email us at <a href="mailto:Alphawears1@gmail.com">Alphawears1@gmail.com</a> with a brief intro and your idea.
+      </div>
+    </div>
+  </div>
+
+  <!-- STILL NEED HELP -->
+  <div class="faq-help">
+    <h3>Still Have a Question?</h3>
+    <p>Our team is always happy to help. Reach out through any of the channels below and we'll get back to you as soon as possible.</p>
+    <div class="faq-help-links">
+      <a href="https://wa.me/" class="faq-help-link" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="mailto:Alphawears1@gmail.com" class="faq-help-link">✉️ Email Us</a>
+      <a href="https://www.instagram.com/alpha.wears?igsh=MXhzMG90eXk0OXZidA==" class="faq-help-link" target="_blank" rel="noopener">📸 Instagram</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer id="about">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/alpha.wears?igsh=MXhzMG90eXk0OXZidA==" class="social-link" title="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="mailto:Alphawears1@gmail.com" class="social-link" title="Gmail">GM</a>
+          <a href="https://wa.me/" class="social-link" title="WhatsApp" target="_blank" rel="noopener">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="size-guide.html">Size Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© Alpha Prime Wears. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
