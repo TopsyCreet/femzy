@@ -658,6 +658,22 @@ footer { background: var(--beige); padding: 60px 0 32px; color: var(--dark); }
   text-decoration: underline; text-underline-offset: 3px;
 }
 .cart-item-remove:hover { color: #c0392b; }
+.cart-size-row {
+  display: flex; align-items: center; gap: 8px;
+  margin: 6px 0 4px;
+}
+.cart-size-label {
+  font-family: var(--font-h); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray);
+  white-space: nowrap;
+}
+.cart-size-select {
+  font-family: var(--font-b); font-size: 0.82rem;
+  padding: 5px 10px; border: 1px solid var(--border);
+  background: var(--cream); color: var(--dark);
+  border-radius: var(--r); cursor: pointer; flex: 1;
+}
+.cart-size-select:focus { outline: none; border-color: var(--dark); }
 .cart-footer {
   flex-shrink: 0; padding: 20px 28px;
   border-top: 1px solid var(--border); background: var(--cream);
@@ -696,10 +712,9 @@ footer { background: var(--beige); padding: 60px 0 32px; color: var(--dark); }
 .wa-tooltip {
   background: var(--dark); color: var(--white); font-family: var(--font-b); font-size: 0.65rem;
   padding: 8px 14px; white-space: nowrap; box-shadow: 0 4px 18px rgba(33,33,33,0.16);
-  opacity: 0; transform: translateX(8px); transition: all 0.28s;
+  opacity: 1; transform: translateX(0);
   pointer-events: none; border-radius: var(--r);
 }
-.wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
 .wa-btn {
   width: 52px; height: 52px; border-radius: 50%; background: #25D366;
   display: flex; align-items: center; justify-content: center;
@@ -713,6 +728,63 @@ footer { background: var(--beige); padding: 60px 0 32px; color: var(--dark); }
   0%,100% { box-shadow: 0 4px 16px rgba(37,211,102,0.38); }
   50%      { box-shadow: 0 4px 28px rgba(37,211,102,0.65), 0 0 0 6px rgba(37,211,102,0.1); }
 }
+
+/* ══════════════════════════════════════
+   JACKET CAROUSEL
+══════════════════════════════════════ */
+.jacket-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+}
+.jacket-carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.jacket-slide {
+  min-width: 100%;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  flex-shrink: 0;
+}
+.jacket-prev, .jacket-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.jacket-prev:hover, .jacket-next:hover { background: var(--white); }
+.jacket-prev { left: 10px; }
+.jacket-next { right: 10px; }
+.jacket-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.jacket-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.jacket-dot.active { background: var(--white); }
 
 /* ══════════════════════════════════════
    CONTACT MODAL

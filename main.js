@@ -128,10 +128,19 @@ const WA_NUMBER = '2349098641755';
 
 /** Product catalogue — must match the cards in index.html */
 const PRODUCTS = {
-  'Mentality Tracksuit':  { price: 50000,  category: 'Tracksuits', gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '⌘' },
-  'Mentality Tanktop':    { price: 20000,  category: 'Tanktops',   gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '◈' },
-  'Mentality Baseball Cap': { price: 25000, category: 'Caps', gradient: 'linear-gradient(145deg,#0d1f35,#1a3a5c,#0a1628)', icon: '◉' },
-  'Mentality Snapback':   { price: 20000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
+  'Mentality Tracksuit':      { price: 80000,  category: 'Tracksuits', gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '⌘' },
+  'Mentality Tanktop':        { price: 30000,  category: 'Tanktops',   gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '◈' },
+  'Mentality Baseball Cap':   { price: 25000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#0d1f35,#1a3a5c,#0a1628)', icon: '◉' },
+  'Mentality Snapback':       { price: 20000,  category: 'Caps',       gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◎' },
+  'ALPHA SS SHIRT':           { price: 50000,  category: 'Shirts',     gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◈' },
+  'Alpha Head Gear':          { price: 15000,  category: 'Headwear',   gradient: 'linear-gradient(145deg,#1a1a1a,#333,#0d0d0d)',    icon: '◉' },
+  'Alpha SS Pant':            { price: 45000,  category: 'Pants',      gradient: 'linear-gradient(145deg,#1a1a2e,#0f3460,#16213e)', icon: '◎' },
+  'Mentality Stripped Pant':  { price: 60000,  category: 'Pants',      gradient: 'linear-gradient(145deg,#2d1b00,#533300,#1a0d00)', icon: '⌘' },
+  'Alpha Prime Lifestyle Hoodie': { price: 70000, category: 'Hoodies', gradient: 'linear-gradient(145deg,#1a1a2e,#3a1a5c,#0a0a1e)', icon: '◈' },
+  'Alpha Prime Lifestyle Shorts': { price: 25000, category: 'Shorts',  gradient: 'linear-gradient(145deg,#1a1a1a,#444,#0d0d0d)',    icon: '◎' },
+  'Alpha Flex Shirt':         { price: 40000,  category: 'Shirts',     gradient: 'linear-gradient(145deg,#1a2e1a,#0f4020,#0a1e0a)', icon: '◈' },
+  'Alpha Flex Cargo Pant':    { price: 35000,  category: 'Pants',      gradient: 'linear-gradient(145deg,#2e2a1a,#3a3010,#1e1a0a)', icon: '◎' },
+  'Alpha Leather Luxe Fit':   { price: 80000,  category: 'Jackets',    gradient: 'linear-gradient(145deg,#1a1a1a,#2a2a2a,#0d0d0d)', icon: '⌘' },
 };
 
 /** @type {{ name: string, price: number, category: string, qty: number, gradient: string, icon: string }[]} */
@@ -148,22 +157,23 @@ function updateCartBadge() {
   if (drawer) drawer.textContent = n === 0 ? '0 items' : `${n} item${n !== 1 ? 's' : ''}`;
 }
 
-function addToCart(productName) {
+function addToCart(productName, color) {
   const p = PRODUCTS[productName];
   if (!p) return;
-  const existing = cart.find(i => i.name === productName);
+  const selectedColor = color || 'Not specified';
+  const existing = cart.find(i => i.name === productName && i.color === selectedColor);
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({ name: productName, price: p.price, category: p.category, qty: 1, gradient: p.gradient, icon: p.icon });
+    cart.push({ name: productName, price: p.price, category: p.category, qty: 1, gradient: p.gradient, icon: p.icon, color: selectedColor, size: '' });
   }
   updateCartBadge();
   renderCart();
   showToast(`✓ ${productName} added`);
 }
 
-function removeFromCart(name) {
-  cart = cart.filter(i => i.name !== name);
+function removeFromCart(name, color) {
+  cart = cart.filter(i => !(i.name === name && i.color === (color || i.color)));
   updateCartBadge();
   renderCart();
 }
@@ -175,6 +185,12 @@ function changeQty(name, delta) {
   updateCartBadge();
   renderCart();
 }
+
+function changeSize(name, color, val) {
+  const item = cart.find(i => i.name === name && i.color === color);
+  if (item) item.size = val;
+}
+window.changeSize = changeSize;
 
 // Expose to global scope so inline onclick attributes in rendered HTML can call them
 window.removeFromCart = removeFromCart;
@@ -207,14 +223,26 @@ function renderCart() {
       <div class="cart-item-details">
         <p class="cart-item-brand">Alpha Wears</p>
         <p class="cart-item-name">${item.name}</p>
-        <p class="cart-item-meta">${item.category} &nbsp;·&nbsp; One Size</p>
+        <p class="cart-item-meta">${item.category} &nbsp;·&nbsp; <span style="color:var(--gold)">Color: ${item.color}</span></p>
+        <div class="cart-size-row">
+          <label class="cart-size-label">Size:</label>
+          <select class="cart-size-select" onchange="changeSize('${item.name}','${item.color}',this.value)">
+            <option value="" ${!item.size ? 'selected' : ''}>Select size</option>
+            <option value="XS" ${item.size==='XS'?'selected':''}>XS</option>
+            <option value="S" ${item.size==='S'?'selected':''}>S</option>
+            <option value="M" ${item.size==='M'?'selected':''}>M</option>
+            <option value="L" ${item.size==='L'?'selected':''}>L</option>
+            <option value="XL" ${item.size==='XL'?'selected':''}>XL</option>
+            <option value="XXL" ${item.size==='XXL'?'selected':''}>XXL</option>
+          </select>
+        </div>
         <div class="cart-item-controls">
           <div class="qty-control">
             <button class="qty-btn" onclick="changeQty('${item.name}', -1)">−</button>
             <span class="qty-value">${item.qty}</span>
             <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
           </div>
-          <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">Remove</button>
+          <button class="cart-item-remove" onclick="removeFromCart('${item.name}','${item.color}')">Remove</button>
           <span class="cart-item-price">₦${(item.price * item.qty).toLocaleString()}</span>
         </div>
       </div>
@@ -239,6 +267,43 @@ function closeCart() {
 document.getElementById('cartClose')?.addEventListener('click', closeCart);
 document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
 document.getElementById('btnContinue')?.addEventListener('click', closeCart);
+
+/* ── Jacket Carousel ── */
+(function() {
+  const track = document.getElementById('jacketTrack');
+  const dots  = document.querySelectorAll('.jacket-dot');
+  if (!track) return;
+  let cur = 0;
+  const total = 3;
+
+  function goTo(n) {
+    cur = (n + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  document.getElementById('jacketPrev')?.addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('jacketNext')?.addEventListener('click', () => goTo(cur + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+  // Touch/swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+  });
+
+  // Add jacket to cart
+  document.getElementById('btnAddJacket')?.addEventListener('click', () => {
+    const colors = ['Black', 'Red', 'Yellow'];
+    addToCart('Alpha Leather Luxe Fit', colors[cur]);
+    const btn = document.getElementById('btnAddJacket');
+    btn.textContent = '✓ Added';
+    btn.style.background = 'var(--gold)';
+    setTimeout(() => { btn.textContent = 'ADD TO CART'; btn.style.background = ''; }, 1800);
+  });
+})();
 document.getElementById('btnNavCart')?.addEventListener('click', openCart);
 
 /* ── Add-to-Cart buttons (product cards) ── */
@@ -253,7 +318,10 @@ document.querySelectorAll('.btn-add-cart').forEach((btn, i) => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const name = productNames[i] || 'Alpha Oversized Tee';
-    addToCart(name);
+    const card = btn.closest('.product-card') || btn.closest('.look-prod-card');
+    const activeSwatch = card ? card.querySelector('.swatch.active') : null;
+    const color = activeSwatch ? activeSwatch.title : 'Default';
+    addToCart(name, color);
     btn.textContent        = '✓ Added';
     btn.style.background   = 'var(--gold)';
     btn.style.color        = 'var(--black)';
@@ -270,9 +338,11 @@ document.querySelectorAll('.btn-add-cart').forEach((btn, i) => {
 ══════════════════════════════════════ */
 document.getElementById('btnWhatsappCheckout')?.addEventListener('click', () => {
   if (cart.length === 0) return;
-  const lines = cart.map(i => `• ${i.name} (x${i.qty}) — ₦${(i.price * i.qty).toLocaleString()}`).join('\n');
+  const missing = cart.find(i => !i.size);
+  if (missing) { showToast('Please select a size for all items'); return; }
+  const lines = cart.map(i => `• ${i.name}\n  Color: ${i.color} | Size: ${i.size} | Qty: ${i.qty} | ₦${(i.price * i.qty).toLocaleString()}`).join('\n\n');
   const total = getCartTotal().toLocaleString();
-  const msg   = `Hello Alpha Wears! 👋\n\nI'd like to place an order:\n\n${lines}\n\n*Total: ₦${total}*\n\nPlease confirm availability and shipping details. Thank you!`;
+  const msg   = `Hello Alpha Wears! 👋\n\nI'd like to place an order:\n\n${lines}\n\n*Total: ₦${total}*\n\nPlease confirm availability and share shipping details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 });
 

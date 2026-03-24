@@ -281,17 +281,23 @@
 
     <div class="shop-look-editorial">
       <p class="shop-look-label">Alpha Leather Luxe Fit</p>
-      <div class="shop-look-img-container">
-        <img src="images/jacket/jacket_black.jpeg" alt="Alpha Leather Luxe Fit" class="shop-look-img prod-color-img" id="jacket-editorial"/>
+      <div class="jacket-carousel" id="jacketCarousel">
+        <div class="jacket-carousel-track" id="jacketTrack">
+          <img src="images/jacket/jacket_black.jpeg" alt="Alpha Leather Luxe Fit" class="jacket-slide"/>
+          <img src="images/jacket/jacket_red.jpeg" alt="Alpha Leather Luxe Fit" class="jacket-slide"/>
+          <img src="images/jacket/jacket_yellow.jpeg" alt="Alpha Leather Luxe Fit" class="jacket-slide"/>
+        </div>
+        <button class="jacket-prev" id="jacketPrev">&#8249;</button>
+        <button class="jacket-next" id="jacketNext">&#8250;</button>
+        <div class="jacket-dots">
+          <span class="jacket-dot active" data-idx="0"></span>
+          <span class="jacket-dot" data-idx="1"></span>
+          <span class="jacket-dot" data-idx="2"></span>
+        </div>
       </div>
       <div class="shop-look-cta">
-        <div class="color-swatches">
-          <button class="swatch active" data-target="jacket-editorial" data-img="images/jacket/jacket_black.jpeg" title="Black"></button>
-          <button class="swatch" data-target="jacket-editorial" data-img="images/jacket/jacket_red.jpeg" title="Red" style="background:#c62828"></button>
-          <button class="swatch" data-target="jacket-editorial" data-img="images/jacket/jacket_yellow.jpeg" title="Yellow" style="background:#f9c400"></button>
-        </div>
         <p class="shop-look-price">₦80,000</p>
-        <a href="#new-arrivals" class="btn-view">ADD TO CART</a>
+        <button class="btn-view btn-add-cart-jacket" id="btnAddJacket">ADD TO CART</button>
       </div>
     </div>
 
@@ -344,7 +350,7 @@
       <span class="cart-subtotal-label">Subtotal</span>
       <span class="cart-subtotal-value" id="cartSubtotal">$0.00</span>
     </div>
-    <p class="cart-note">Shipping &amp; taxes calculated at checkout. Free delivery on orders over $200.</p>
+    <p class="cart-note">Shipping calculated at checkout. Sizes are selected below each item.</p>
     <div class="cart-footer-btns">
       <button class="btn-whatsapp-checkout" id="btnWhatsappCheckout">
         <span class="wa-icon">📲</span> Checkout via WhatsApp
