@@ -318,7 +318,11 @@
     .pillars-grid { grid-template-columns: 1fr; gap: 16px; }
     .about-strip { grid-template-columns: repeat(3, 1fr); gap: 4px; }
     .about-quote { padding: 48px 24px; }
-    .about-mission-img { order: -1; aspect-ratio: 4/3; }
+    .about-mission-img { order: -1; 
+                        aspect-ratio: 1 / 1;
+    object-position: center;      /* was "center top", which pushes the logo down */
+    transform: scale(1.6);        /* zoom amount */
+    clip-path: inset(18.75%);     /* keeps it inside the original box */}
   }
 </style>
 </head>
